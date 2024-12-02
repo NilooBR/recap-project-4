@@ -23,6 +23,14 @@ function App() {
     setColors(updatedColors);
   }
 
+  // Handle editing an existing color
+  function handleEditColor(colorId, updatedColor) {
+    const updatedColors = colors.map((color) =>
+      color.id === colorId ? { ...color, ...updatedColor } : color
+    );
+    setColors(updatedColors);
+  }
+
   return (
     <div className="app">
       <h1>Theme Creator</h1>
@@ -46,7 +54,12 @@ function App() {
           </p> // Display message if no colors
         ) : (
           colors.map((color) => (
-            <Color key={color.id} color={color} onDelete={handleDeleteColor} />
+            <Color
+              key={color.id}
+              color={color}
+              onDelete={handleDeleteColor}
+              onEditColor={handleEditColor}
+            />
           ))
         )}
       </div>
