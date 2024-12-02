@@ -9,3 +9,52 @@
   background: black;
   color: white;
 }
+
+/* New styles for confirmation */
+.color-card-highlight {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #d90429;
+  margin-top: 10px;
+}
+
+.delete-confirm-button,
+.delete-cancel-button {
+  padding: 5px 10px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.delete-confirm-button {
+  background-color: #003e1f;
+  color: white;
+}
+
+.delete-cancel-button {
+  background-color: #d90429;
+  color: white;
+}
+
+.delete-confirm-button:hover {
+  background-color: darkgreen;
+}
+
+.delete-cancel-button:hover {
+  background-color: darkred;
+}
+
+/* Style for the delete button */
+.color-card-delete-button {
+  background-color: #d90429;
+  color: white;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.color-card-delete-button:hover {
+  background-color: darkred;
+}
