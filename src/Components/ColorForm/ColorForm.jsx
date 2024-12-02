@@ -3,7 +3,7 @@ import ColorInput from "../ColorInput/ColorInput";
 
 export default function ColorForm({
   onSubmitColor,
-  initialData = { role: "Some color", hex: "#ffef22", contrastText: "#ffffff" },
+  initialData = { role: "Some color", hex: "#123456", contrastText: "#ffffff" },
 }) {
   function handleSubmit(event) {
     event.preventDefault();
