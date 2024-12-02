@@ -3,33 +3,33 @@ import { useEffect, useState } from "react";
 export default function ContrastCheckerAPI({ color }) {
   const [contrastValue, setContrastValue] = useState(null);
 
-  useEffect(() => {
-    const fetchContrastCheckColor = async () => {
-      try {
-        const response = await fetch(
-          "https://www.aremycolorsaccessible.com/api/are-they",
-          {
-            method: "POST",
-            body: JSON.stringify({ colors: [color.hex, color.contrastText] }),
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-
-        console.log("Response status:", response.status);
-
-        if (!response.ok) {
-          throw new Error(`API Error: ${response.status}`);
+  async function fetchContrastCheckerAPI() {
+    try {
+      const response = await fetch(
+        "https://www.aremycolorsaccessible.com/api/are-they",
+        {
+          method: "POST",
+          body: JSON.stringify({ colors: [color.hex, color.contrastText] }),
+          headers: {
+            "Content-Type": "application/json",
+          },
         }
+      );
 
-        const data = await response.json();
-        setContrastValue(data);
-      } catch (error) {
-        console.error("API Error:", error.message);
+      console.log("Response status:", response.status);
+      if (!response.ok) {
+        throw new Error(`API Error: ${response.status}`);
       }
-    };
-    fetchContrastCheckColor();
+
+      const data = await response.json();
+      setContrastValue(data);
+    } catch (error) {
+      console.error("API Error:", error.message);
+    }
+  }
+
+  useEffect(() => {
+    fetchContrastCheckerAPI();
   }, [color]);
 
   const getBackgroundColor = (overall) => {
@@ -48,17 +48,18 @@ export default function ContrastCheckerAPI({ color }) {
   return (
     <>
       {contrastValue ? (
+        <p>⏳⏳⏳</p>
+      ) : (
         <p
           style={{
             backgroundColor: getBackgroundColor(contrastValue.overall),
             padding: "10px",
             borderRadius: "5px",
             color: "black",
-          }}>
+          }}
+        >
           Overall Contrast Score: {contrastValue.overall}
         </p>
-      ) : (
-        <p>⏳⏳⏳</p>
       )}
     </>
   );
