@@ -17,6 +17,12 @@ function App() {
     console.log("Colors", colors);
   }
 
+  // Handle deleting a color
+  function handleDeleteColor(colorId) {
+    const updatedColors = colors.filter((color) => color.id !== colorId);
+    setColors(updatedColors);
+  }
+
   return (
     <div className="app">
       <h1>Theme Creator</h1>
@@ -24,11 +30,25 @@ function App() {
       {/* Form to add a new color */}
       <ColorForm onSubmitColor={handleSubmitColor} />
 
-      {/* Display the list of colors */}
+      {/* Display the list of colors or a message if no colors */}
       <div className="color-container">
-        {colors.map((color) => (
-          <Color key={color.id} color={color} />
-        ))}
+        {colors.length === 0 ? (
+          <p
+            style={{
+              fontSize: "1.2rem",
+              fontWeight: "bold",
+              color: "#FF6347",
+              textAlign: "center",
+              padding: "20px",
+              borderRadius: "8px",
+            }}>
+            No colors... start by adding one!
+          </p> // Display message if no colors
+        ) : (
+          colors.map((color) => (
+            <Color key={color.id} color={color} onDelete={handleDeleteColor} />
+          ))
+        )}
       </div>
     </div>
   );
