@@ -1,5 +1,4 @@
 .color-form-container {
-  max-width: 400px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -15,21 +14,17 @@
 .color-input-container {
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 10px;
 }
 
 .color-input-text {
-  flex-grow: 1;
   padding: 5px;
-  border: 1px solid #ccc;
   border-radius: 4px;
 }
 
 .color-input-picker {
   width: 40px;
   height: 40px;
-  border: none;
-  padding: 0;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -46,5 +41,5 @@
 }
 
 .color-form-submit-button:hover {
-  background-color: #F3A712;
+  background-color: #34295c;
 }
