@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ColorForm from "../ColorForm/ColorForm";
+import CopyToClipboard from "../CopyToClipboard/CopyToClipboard";
 import "./Color.css";
 
 export default function Color({ color, onDelete, onEditColor }) {
@@ -39,24 +40,28 @@ export default function Color({ color, onDelete, onEditColor }) {
       style={{
         background: color.hex,
         color: color.contrastText,
-      }}
-    >
+      }}>
       {isEditing ? (
         <div className="color-card-edit">
-          <ColorForm onSubmitColor={handleSubmitColor} initialData={color} buttonText="UPDATE COLOR"/>
-          <button
-            onClick={toggleEdit}
-            className="color-card-cancel-button"
-          >
+          <ColorForm
+            onSubmitColor={handleSubmitColor}
+            initialData={color}
+            buttonText="UPDATE COLOR"
+          />
+          <button onClick={toggleEdit} className="color-card-cancel-button">
             CANCEL
           </button>
         </div>
       ) : (
         <>
-          <h3 className="color-card-headline">{color.hex}</h3>
+          <div className="color-card-header">
+            <h3 className="color-card-headline">{color.hex}</h3>
+            <CopyToClipboard hexCode={color.hex} />
+          </div>
+
           <h4>{color.role}</h4>
           <p>Contrast Text: {color.contrastText}</p>
-          
+
           <button onClick={toggleEdit} className="color-card-edit-button">
             EDIT
           </button>
