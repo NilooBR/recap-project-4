@@ -4,7 +4,7 @@ export default function ContrastCheckerAPI({ color }) {
   const [contrastValue, setContrastValue] = useState(null);
 
   useEffect(() => {
-    const fetchContrastCheckColor = async () => {
+    async function fetchContrastCheckColor(){
       try {
         const response = await fetch(
           "https://www.aremycolorsaccessible.com/api/are-they",
@@ -28,7 +28,7 @@ export default function ContrastCheckerAPI({ color }) {
       } catch (error) {
         console.error("API Error:", error.message);
       }
-    };
+    }
     fetchContrastCheckColor();
   }, [color]);
 
