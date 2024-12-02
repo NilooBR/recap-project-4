@@ -25,10 +25,6 @@
   border-radius: 4px;
 }
 
-.color-input-text:focus {
-  outline: 2px solid #346dda;
-}
-
 .color-input-picker {
   width: 40px;
   height: 40px;
