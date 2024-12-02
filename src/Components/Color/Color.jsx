@@ -2,6 +2,7 @@ import { useState } from "react";
 import ColorForm from "../ColorForm/ColorForm";
 import CopyToClipboard from "../CopyToClipboard/CopyToClipboard";
 import "./Color.css";
+import ContrastCheckerAPI from "../ContrastCheckerAPI/ContrastCheckerAPI.jsx";
 
 export default function Color({ color, onDelete, onEditColor }) {
   const [isConfirming, setIsConfirming] = useState(false);
@@ -58,6 +59,8 @@ export default function Color({ color, onDelete, onEditColor }) {
             <h3 className="color-card-headline">{color.hex}</h3>
             <CopyToClipboard hexCode={color.hex} />
           </div>
+          
+          <ContrastCheckerAPI color={color} />
 
           <h4>{color.role}</h4>
           <p>Contrast Text: {color.contrastText}</p>
