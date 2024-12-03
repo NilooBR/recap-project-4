@@ -154,9 +154,9 @@ function App() {
 
       {/* List of colors in the current theme */}
       <ColorForm onSubmitColor={handleAddColorToTheme} />
-      <div className="color-container">
+      <div>
         {currentTheme.colors.length === 0 ? (
-          <p>No colors in this theme. Add one!</p>
+          <h3 style={{textAlign: "center"}}>🎨 No colors in this theme. Add one!</h3>
         ) : (
           currentTheme.colors.map((color) => (
             <Color
