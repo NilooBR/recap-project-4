@@ -2,3 +2,61 @@ body {
   font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
   padding: 10px;
 }
+
+.theme-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.theme-selector button {
+  margin-top: 5px;
+  margin: 3px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #29335c;
+  color: white;
+  cursor: pointer;
+}
+
+.theme-selector button:hover {
+  background-color: #34295c;
+}
+
+.theme-selector select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.theme-management {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.theme-card {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  /*https://htmlcssfreebies.com/css-box-shadow-examples/*/
+  box-shadow: 0 1px 1px rgba(0,0,0,0.11), 0 2px 2px rgba(0,0,0,0.11), 0 4px 4px rgba(0,0,0,0.11), 0 8px 8px rgba(0,0,0,0.11), 0 16px 16px rgba(0,0,0,0.11), 0 32px 32px rgba(0,0,0,0.11);
+}
+
+.theme-card button {
+  margin-top: 5px;
+  margin: 3px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #29335c;
+  color: white;
+  cursor: pointer;
+}
+
+.theme-card button:hover {
+  background-color: #34295c;
+}
